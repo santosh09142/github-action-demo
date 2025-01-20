@@ -1,0 +1,18 @@
+name: Github actions Demo
+run-name: $ {{ github.actor }} is testing out github actions
+on: [push]
+jobs:
+  Explore-Github-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello, $ {{ github.actor }}. You are running a Github Action!"
+      - run: echo "The event that triggered this action was $ {{ runner.os }}."
+      - run: echo "The name of your branch is $ {{ github.ref }}."
+      - name: Checkout the repository ode
+        uses: actions/checkout@v4
+      - run: echo "The commit message that triggered this action was $ {{ github.repository }}."
+      - run: echo "The commit message that triggered this action was $ {{ github.event.head_commit.message }}."
+      - name: List files in the repository
+        run: |
+          ls -${{ github.workspace }}
+      - run: echo "The commit message that triggered this action was $ {{ jobs.status }}."
