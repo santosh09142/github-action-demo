@@ -14,5 +14,5 @@ jobs:
       - run: echo "The commit message that triggered this action was $ {{ github.event.head_commit.message }}."
       - name: List files in the repository
         run: |
-          ls -${{ github.workspace }}
+          ls ${{ github.workspace }}
       - run: echo "The commit message that triggered this action was $ {{ jobs.status }}."
